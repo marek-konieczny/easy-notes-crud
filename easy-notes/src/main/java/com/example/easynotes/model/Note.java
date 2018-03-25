@@ -12,6 +12,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "notes")
+//Auto genereting values for createdAt and updatedAt fields
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
         allowGetters = true)
