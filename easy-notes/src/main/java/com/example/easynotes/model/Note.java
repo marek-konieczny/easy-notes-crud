@@ -12,35 +12,34 @@ import java.util.Date;
 
 @Entity
 @Table(name = "notes")
-//Auto genereting values for createdAt and updatedAt fields
+// Auto genereting values for createdAt and updatedAt fields
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
-        allowGetters = true)
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Note implements Serializable {
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5526649676695135113L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotBlank
-    private String title;
+	@NotBlank
+	private String title;
 
-    @NotBlank
-    private String content;
+	@NotBlank
+	private String content;
 
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
+	@Column(nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreatedDate
+	private Date createdAt;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date updatedAt;
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@LastModifiedDate
+	private Date updatedAt;
 
 	public Long getId() {
 		return id;
@@ -82,5 +81,4 @@ public class Note implements Serializable {
 		this.updatedAt = updatedAt;
 	}
 
-    
 }
